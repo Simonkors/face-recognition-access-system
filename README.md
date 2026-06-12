@@ -1,32 +1,83 @@
-# Face Recognition Access Control System
+# Face Recognition Access Control
 
-Bachelor thesis project developed using Python, OpenCV and Face Recognition.
+Small Python project that compares a reference face image with a test image and marks the result as access granted or access denied.
 
-## Description
+The project uses `face_recognition`, OpenCV and Pillow to:
 
-This project demonstrates a simple biometric access control system based on facial recognition.
+- detect faces in two images
+- compare face embeddings
+- calculate face distance
+- draw the result on the test image
+- save a visual output image
+- write a simple access log
 
-The application compares a detected face with a reference image and automatically decides whether access should be granted or denied.
+## Project Structure
 
-A second version supports real-time recognition using a webcam.
+```text
+FaceRecognitionProject/
+  images/
+    known_face.jpg
+    test_face.jpg
+  main.py
+face_compare_visual.py
+requirements.txt
+Запустить_сравнение_лиц.bat
+```
 
-## Features
+## Setup
 
-* Face detection
-* Face comparison
-* Biometric identification
-* Access control decision
-* Event logging
-* Real-time webcam recognition
+Create and activate a virtual environment:
 
-## Technologies
+```bash
+python -m venv .venv
+.venv\Scripts\activate
+```
 
-* Python
-* OpenCV
-* Face Recognition
-* Pillow
-* NumPy
+Install dependencies:
 
-## Author
+```bash
+pip install -r requirements.txt
+```
 
-Simon Kors
+Note: the `face_recognition` package depends on `dlib`, which may require C++ build tools on Windows.
+
+## Usage
+
+Run the image comparison:
+
+```bash
+python FaceRecognitionProject/main.py
+```
+
+Show the result in an OpenCV window:
+
+```bash
+python FaceRecognitionProject/main.py --show
+```
+
+Use custom images:
+
+```bash
+python FaceRecognitionProject/main.py --known path/to/reference.jpg --test path/to/person.jpg
+```
+
+Run the webcam demo:
+
+```bash
+python face_compare_visual.py
+```
+
+Press `q` to close the webcam window.
+
+## Output
+
+By default, the program writes:
+
+- result image: `FaceRecognitionProject/output/result.jpg`
+- log file: `FaceRecognitionProject/log/access_log.txt`
+
+Both folders are ignored by Git because they are generated runtime artifacts.
+
+## Privacy Note
+
+Do not commit private face images without permission. For a public portfolio repository, use demo images that are either your own or licensed for public use.
