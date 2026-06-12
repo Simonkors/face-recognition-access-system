@@ -1,6 +1,6 @@
 # Face Recognition Access Control
 
-Small Python project that compares a reference face image with a test image and marks the result as access granted or access denied.
+Bachelor thesis project that compares a reference face image with a test image and marks the result as access granted or access denied.
 
 The project uses `face_recognition`, OpenCV and Pillow to:
 
@@ -19,10 +19,23 @@ FaceRecognitionProject/
     known_face.jpg
     test_face.jpg
   main.py
+screenshots/
+  access_granted.jpg
+  access_denied.jpg
 face_compare_visual.py
 requirements.txt
-Запустить_сравнение_лиц.bat
+run_face_comparison.bat
 ```
+
+## Screenshots
+
+Access granted example:
+
+![Access granted example](screenshots/access_granted.jpg)
+
+Access denied example:
+
+![Access denied example](screenshots/access_denied.jpg)
 
 ## Setup
 
